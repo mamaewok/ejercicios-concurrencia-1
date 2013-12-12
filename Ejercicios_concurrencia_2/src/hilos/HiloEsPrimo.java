@@ -1,25 +1,40 @@
 package hilos;
 
-public class HiloEsPrimo implements Runnable{
-	
-	private int numero;
+public class HiloEsPrimo extends Thread {
+	int i = 0;
+
+	public HiloEsPrimo(int i) {
+
+	}
 
 	@Override
 	public void run() {
-		if(getNumero()%1 == 0 && getNumero()%getNumero()==0){
-			
-		}
+		int aux;
+		boolean primo = false;
 		
+		for (int a = 2; a < i; a++) {
+			aux = i % a;
+			if (aux == 0) {
+				primo = false;
+				break;
+			}
+		}
+		if (primo == true) {
+			System.out.print("Es Primo" + "\n");
+		} else {
+			System.out.print("No es Primo" + "\n");
+		}
 	}
 
-	public int getNumero() {
-		return numero;
+	public static boolean SerPrimo(int numero) {
+		int aux;
+		for (int cont = 2; cont < numero; cont++) {
+			aux = numero % cont;
+			if (aux == 0) {
+				return false;
+			}
+			return false;
+		}
+		return false;
 	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	
-	
 }
